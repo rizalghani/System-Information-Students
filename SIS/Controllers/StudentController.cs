@@ -11,7 +11,7 @@ using SIS.Models;
 
 namespace SIS.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly ApplicationDbContext _context;
