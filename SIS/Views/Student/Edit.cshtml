@@ -68,7 +68,7 @@
                                 <div class="form-group">
                                     <label asp-for="BoD" class="control-label"></label>
                                     <div class="input-group">
-                                        <input asp-for="BoD" type="text" class="form-control daterange-single-empty" placeholder="dd-mmm-yyyy" value="@(Model.BoD != null ? Model.BoD.Value.ToString("dd-MMM-yyyy") : "")">
+                                        <input asp-for="BoD" type="text" class="form-control daterange-single-empty" placeholder="dd-mmm-yyyy" value="@(Model.BoD != null ? Model.BoD.Value.ToString("dd-MMM-yyyy") : "")" >
                                         <span class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-calendar22"></i></span>
                                         </span>
@@ -128,27 +128,3 @@
         </div>
     </form>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        // Single picker
-        $('.daterange-single-empty').daterangepicker({
-            singleDatePicker: true,
-            autoUpdateInput: false,
-            locale: {
-                cancelLabel: 'Clear',
-                format: 'DD-MM-YYYY'
-            }
-        });
-
-        // Single picker - Empty value
-        $('.daterange-single-empty').on('apply.daterangepicker', function (ev, picker) {
-            $(this).val(picker.startDate.format('DD-MMM-YYYY'));
-        });
-
-        $('.daterange-single-empty').on('cancel.daterangepicker', function (ev, picker) {
-            $(this).val('');
-        });
-    });
-</script>
-
