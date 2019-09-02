@@ -1,0 +1,30 @@
+﻿@model SIS.Models.Major
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Major</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MajorName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MajorName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MajorCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MajorCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

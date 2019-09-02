@@ -1,0 +1,148 @@
+﻿@model SIS.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title font-weight-bold text-blue-700">CREATE FORM</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="reload"></a>
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="Create">
+        <div class="card-body">
+            <div class="row font-weight-bold">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend class="font-weight-semibold text-primary-700"><i class="icon-box mr-2"></i> STUDENT INPUT</legend>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+
+                        <div class="form-group-feedback-right mb-3 mb-3">
+                            <label asp-for="Name" class="control-label"></label> *
+                            <div class="input-group">
+                                <input asp-for="Name" class="form-control" placeholder="Enter your equipment name" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group-feedback-right mb-3">
+                            <label asp-for="Religion" class="control-label"></label>
+                            <div class="input-group">
+                                <select asp-for="Religion" class="form-control select" asp-items="@ViewBag.Religion" data-placeholder="Select a Religion..." data-fouc>
+                                    <option value=""></option>
+                                    <option value="Moeslem">Moeslem</option>
+                                    <option value="Catholic">Catholic</option>
+                                    <option value="Protestant">Protestant</option>
+                                    <option value="Buddha">Buddha</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Confucius">Confucius</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="Religion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group-feedback-right mb-3">
+                            <label asp-for="Address" class="control-label"></label>
+                            <div class="input-group">
+                                <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter your address" style="resize:none;"></textarea>
+                            </div>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Gender" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="Gender" class="form-control select" asp-items="@ViewBag.Gender" data-placeholder="Select a Gender..." data-fouc>
+                                            <option value=""></option>
+                                            <option value="Man">Man</option>
+                                            <option value="Women">Women</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="BoD" class="control-label"></label>
+                                    <div class="input-group">
+                                        <input asp-for="BoD" type="text" class="form-control daterange-single-empty" placeholder="dd-mmm-yyyy">
+                                        <span class="input-group-prepend">
+                                            <span class="input-group-text"><i class="icon-calendar22"></i></span>
+                                        </span>
+                                    </div>
+                                    <span asp-validation-for="BoD" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group-feedback-right mb-3">
+                                    <label asp-for="MajorID" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="MajorID" class="form-control select" asp-items="@ViewBag.Majors" data-placeholder="Select a Major..." required data-fouc>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="MajorID" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-6 mb-0">
+                    <div class="form-group">
+                        <a asp-action="Index" class="btn btn-link"><i class="icon-backward"></i> Back to List</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right mb-0">
+                    <div class="form-group">
+                        <button type="submit" value="" class="btn btn-primary">Create <i class="icon-paperplane ml-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Single picker
+        $('.daterange-single-empty').daterangepicker({
+            singleDatePicker: true,
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear',
+                format: 'DD-MM-YYYY'
+            }
+        });
+
+        // Single picker - Empty value
+        $('.daterange-single-empty').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.startDate.format('DD-MMM-YYYY'));
+        });
+
+        $('.daterange-single-empty').on('cancel.daterangepicker', function (ev, picker) {
+            $(this).val('');
+        });
+        return false;
+    });
+</script>
+
