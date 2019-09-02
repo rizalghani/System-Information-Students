@@ -13,13 +13,13 @@
             </div>
         </div>
     </div>
-
+    
     <div class="card-body">
-        <div class="btn-group btn-group-toggle float-right">
+        <div class="btn-group btn-group-toggle float-right pb-3">
             <a asp-action="Create" class="btn btn-primary"> <i class="icon-pen-plus mr-1"></i> Create</a>
         </div>
-        <div class="table-responsive">
-            <table class="table datatable-responsive">
+        <div class="">
+            <table id="TableStudent" class="table ">
                 <thead class="bg-primary">
                     <tr>
                         <th>No</th>
@@ -32,6 +32,9 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.BoD)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Age)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Gender)
@@ -52,44 +55,47 @@
                     @{int no = 1;}
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td width="3%">@(no)</td>
-                            <td width="5%">
-                                <div class="list-icons">
-                                    <div class="dropdown">
-                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
+                    <tr>
+                        <td width="3%">@(no)</td>
+                        <td width="5%">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
 
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a asp-action="Edit" class="dropdown-item" asp-route-id="@item.NIS"><i class="icon-database-edit2 mr-2"></i>Edit</a>
-                                            <a asp-action="Delete" id="@item.NIS" class="sweet_warning dropdown-item"><i class="icon-trash mr-2"></i>Delete</a>
-                                        </div>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a asp-action="Edit" class="dropdown-item" asp-route-id="@item.NIS"><i class="icon-database-edit2 mr-2"></i>Edit</a>
+                                        <a asp-action="Delete" id="@item.NIS" class="sweet_warning dropdown-item"><i class="icon-trash mr-2"></i>Delete</a>
                                     </div>
                                 </div>
-                            </td>
-                            <td width="15%">
-                                @Html.DisplayFor(modelItem => item.NIS)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td width="10%">
-                                @Html.DisplayFor(modelItem => item.BoD)
-                            </td>
-                            <td width="10%">
-                                @Html.DisplayFor(modelItem => item.Gender)
-                            </td>
-                            <td width="10%">
-                                @Html.DisplayFor(modelItem => item.Religion)
-                            </td>
-                            <td width="10%">
-                                @Html.DisplayFor(modelItem => item.Major.MajorName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Address)
-                            </td>
-                        </tr>
+                            </div>
+                        </td>
+                        <td width="15%">
+                            @Html.DisplayFor(modelItem => item.NIS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td width="10%">
+                            @Html.DisplayFor(modelItem => item.BoD)
+                        </td>
+                        <td width="10%">
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td width="10%">
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td width="10%">
+                            @Html.DisplayFor(modelItem => item.Religion)
+                        </td>
+                        <td width="10%">
+                            @Html.DisplayFor(modelItem => item.Major.MajorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                    </tr>
                         no++;
                     }
                 </tbody>
@@ -101,6 +107,56 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        $('#TableStudent').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                //'copy', 'csv', 'excel', 'pdf', 'print'
+                //'copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'
+                {
+                    extend: 'copy',
+                    text: '<i class="icon-copy text-green-800"></i>',
+                    titleAttr: 'Copy',
+                    className: 'btn btn-link btn-lg'
+                },
+                {
+                    extend: 'csv',
+                    text: '<i class="icon-file-spreadsheet text-green-800"></i>',
+                    titleAttr: 'CSV',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: '<i class="icon-file-excel text-green-800"></i>',
+                    titleAttr: 'Excel',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="icon-file-pdf text-green-800"></i>',
+                    titleAttr: 'PDF',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="icon-printer text-green-800"></i>',
+                    titleAttr: 'Print',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8]
+                    }
+                },  
+            ]
+        });
+
         $('.sweet_warning').on('click', function () {
             $id = this.id;
             swal({
