@@ -20,6 +20,7 @@ namespace SIS.Models
         public string Name { get; set; }
 
         [Display(Name = "Birth of Date")]
+        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}")]
         public DateTime? BoD { get; set; }
 

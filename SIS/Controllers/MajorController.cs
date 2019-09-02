@@ -25,24 +25,7 @@ namespace SIS.Controllers
             return View(await _context.Majors.ToListAsync());
         }
 
-        // GET: Major/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var major = await _context.Majors
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (major == null)
-            {
-                return NotFound();
-            }
-
-            return View(major);
-        }
-
+        
         // GET: Major/Create
         public IActionResult Create()
         {
@@ -50,8 +33,6 @@ namespace SIS.Controllers
         }
 
         // POST: Major/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,MajorName,MajorCode")] Major major)
@@ -82,8 +63,6 @@ namespace SIS.Controllers
         }
 
         // POST: Major/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,MajorName,MajorCode")] Major major)
@@ -116,33 +95,23 @@ namespace SIS.Controllers
             return View(major);
         }
 
-        // GET: Major/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var major = await _context.Majors
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (major == null)
-            {
-                return NotFound();
-            }
-
-            return View(major);
-        }
-
         // POST: Major/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
         {
-            var major = await _context.Majors.FindAsync(id);
-            _context.Majors.Remove(major);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var major = await _context.Majors.FindAsync(id);
+                _context.Majors.Remove(major);
+                await _context.SaveChangesAsync();
+
+                return Json(new { msg = "success" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { msg = e.Message });
+            }
         }
 
         private bool MajorExists(int id)

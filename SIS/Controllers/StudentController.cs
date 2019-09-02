@@ -105,7 +105,6 @@ namespace SIS.Controllers
 
         // POST: Student/Delete/5
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(string id)
         {
             try
