@@ -34,6 +34,9 @@
                             @Html.DisplayNameFor(model => model.BoD)
                         </th>
                         <th>
+                            @Html.DisplayNameFor(model => model.Age)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.Gender)
                         </th>
                         <th>
@@ -41,9 +44,6 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.MajorID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Address)
                         </th>
 
                     </tr>
@@ -78,16 +78,16 @@
                             @Html.DisplayFor(modelItem => item.BoD)
                         </td>
                         <td width="10%">
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td width="10%">
                             @Html.DisplayFor(modelItem => item.Gender)
                         </td>
-                        <td width="10%">
+                        <td>
                             @Html.DisplayFor(modelItem => item.Religion)
                         </td>
-                        <td width="10%">
-                            @Html.DisplayFor(modelItem => item.Major.MajorName)
-                        </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Address)
+                            @Html.DisplayFor(modelItem => item.Major.MajorName)
                         </td>
                     </tr>
                         no++;
@@ -110,12 +110,14 @@
                     extend: 'copy',
                     text: '<i class="icon-copy text-green-800"></i>',
                     titleAttr: 'Copy',
+                    title: 'Student List',
                     className: 'btn btn-link btn-lg'
                 },
                 {
                     extend: 'csv',
                     text: '<i class="icon-file-spreadsheet text-green-800"></i>',
                     titleAttr: 'CSV',
+                    title: 'Student List',
                     className: 'btn btn-link btn-lg',
                     exportOptions: {
                         columns: [0, 2, 3, 4, 5, 6, 7, 8]
@@ -125,6 +127,7 @@
                     extend: 'excel',
                     text: '<i class="icon-file-excel text-green-800"></i>',
                     titleAttr: 'Excel',
+                    title: 'Student List',
                     className: 'btn btn-link btn-lg',
                     exportOptions: {
                         columns: [0, 2, 3, 4, 5, 6, 7, 8]
@@ -134,6 +137,7 @@
                     extend: 'pdf',
                     text: '<i class="icon-file-pdf text-green-800"></i>',
                     titleAttr: 'PDF',
+                    title: 'Student List',
                     className: 'btn btn-link btn-lg',
                     exportOptions: {
                         columns: [0, 2, 3, 4, 5, 6, 7, 8]
@@ -143,6 +147,7 @@
                     extend: 'print',
                     text: '<i class="icon-printer text-green-800"></i>',
                     titleAttr: 'Print',
+                    title: 'Student List',
                     className: 'btn btn-link btn-lg',
                     exportOptions: {
                         columns: [0, 2, 3, 4, 5, 6, 7, 8]

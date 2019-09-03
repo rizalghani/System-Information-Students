@@ -29,7 +29,7 @@
                         <div class="form-group-feedback-right mb-3 mb-3">
                             <label asp-for="Name" class="control-label"></label> *
                             <div class="input-group">
-                                <input asp-for="Name" class="form-control" placeholder="Enter your equipment name" />
+                                <input asp-for="Name" class="form-control" placeholder="Enter your equipment name" required />
                             </div>
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
@@ -51,7 +51,7 @@
                         <div class="form-group-feedback-right mb-3">
                             <label asp-for="Address" class="control-label"></label>
                             <div class="input-group">
-                                <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter your address" style="resize:none;"></textarea>
+                                <textarea asp-for="Address" class="form-control" rows="3" maxlength="250" placeholder="Enter your address" style="resize:none;"></textarea>
                             </div>
                             <span asp-validation-for="Address" class="text-danger"></span>
                         </div>

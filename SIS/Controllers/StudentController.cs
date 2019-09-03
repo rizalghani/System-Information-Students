@@ -43,7 +43,7 @@ namespace SIS.Controllers
         {
             if (ModelState.IsValid)
             {
-                string dtNow = $"{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Second}";
+                string dtNow = $"{DateTime.Now.Year}{DateTime.Now.Month.ToString("00")}{DateTime.Now.Day.ToString("00")}{DateTime.Now.Second.ToString("00")}";
                 student.NIS = "ST" + dtNow;
 
                 _context.Add(student);

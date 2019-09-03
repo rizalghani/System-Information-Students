@@ -16,6 +16,7 @@ namespace SIS.Models
         public string NIS { get; set; }
 
         [Display(Name = "Name")]
+        [Required(ErrorMessage = "{0} is required !")]
         [StringLength(50, ErrorMessage = "{0} no more than {1} characters !")]
         public string Name { get; set; }
 
@@ -42,5 +43,14 @@ namespace SIS.Models
         [Display(Name = "Address")]
         [StringLength(250, ErrorMessage = "{0} no more than {1} characters !")]
         public string Address { get; set; }
+
+        public int Age
+        {
+            get
+            {
+                return DateTime.Now.Year - BoD.Value.Year;
+            }
+
+        }
     }
 }
