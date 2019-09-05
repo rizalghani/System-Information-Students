@@ -35,8 +35,9 @@ namespace SIS
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(p =>
             {
                 p.Password.RequireDigit = false;
