@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+<<<<<<< HEAD
+=======
+using System.ComponentModel.DataAnnotations.Schema;
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,6 +13,10 @@ namespace SIS.Models
     public class PPG
     {
         [Key]
+<<<<<<< HEAD
+=======
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
         public int ID { get; set; }
 
         [Display(Name = "Nopes PPG")]

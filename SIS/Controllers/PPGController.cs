@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.ComponentModel.DataAnnotations.Schema;
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
+=======
+using Microsoft.AspNetCore.Mvc.Rendering;
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
 using Microsoft.EntityFrameworkCore;
 using SIS.Data;
 using SIS.Models;
@@ -58,7 +66,11 @@ namespace SIS.Controllers
                 }
 
                 await _context.SaveChangesAsync();
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
             }
             catch (Exception)
             {
@@ -87,4 +99,8 @@ namespace SIS.Controllers
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 294fb5a3e40fc9bab6939a88b4e64f7d4d287a8a
