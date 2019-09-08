@@ -1,0 +1,263 @@
+﻿@model IEnumerable<SIS.Models.PPG>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title text-blue-800 font-weight-bold">PPG LIST</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="reload"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="btn-group btn-group-toggle float-right pb-3">
+            <a asp-action="Create" class="btn btn-primary"> <i class="icon-pen-plus mr-1"></i> Create</a>
+            <a asp-action="Import" class=" btn btn-secondary" data-toggle="modal" data-target="#modal_iconified">Import<i class="icon-import ml-2"></i></a>
+        </div>
+        <div class="">
+            <table id="TableStudent" class="table ">
+                <thead class="bg-primary">
+                    <tr>
+                        <th>No</th>
+                        <th></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.No_Ujian)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.No_PPG)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nama)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lokasi)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Mapel)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int no = 1;}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td width="3%">@(no)</td>
+                            <td width="5%">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a asp-action="Create" class="dropdown-item" asp-route-id="@item.ID"><i class="icon-database-edit2 mr-2"></i>Edit</a>
+                                            <a asp-action="Delete" id="@item.ID" class="sweet_warning dropdown-item"><i class="icon-trash mr-2"></i>Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td width="13%">
+                                @Html.DisplayFor(modelItem => item.No_Ujian)
+                            </td>
+                            <td width="13%">
+                                @Html.DisplayFor(modelItem => item.No_PPG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nama)
+                            </td>
+                            <td width="15%">
+                                @Html.DisplayFor(modelItem => item.Lokasi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Mapel)
+                            </td>
+                            <td width="13%">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                        </tr>
+                        no++;
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Import -->
+<div id="modal_iconified" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary">
+                <h5 class="modal-title"><i class="icon-import mr-2"></i> &nbsp;IMPORT FILE EXCEL</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form method="post" enctype="multipart/form-data" asp-action="Import">
+
+
+
+                <!-- Highlighted tabs -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                                    <li class="nav-item"><a href="#highlighted-justified-tab1" class="nav-link active" data-toggle="tab">IMPORT</a></li>
+                                    <li class="nav-item"><a href="#highlighted-justified-tab2" class="nav-link" data-toggle="tab">ATURAN IMPORT</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="highlighted-justified-tab1">
+                                        Silahkan upload file excel disini.
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <input type="file" name="files" class="file-input" data-fouc>
+                                               </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="highlighted-justified-tab2">
+                                        <p>
+                                            Silahkan download sample file excel untuk mengisi data yang akan di import
+                                            <span>
+                                                <a href="~/default/PPG List.xlsx">
+                                                    <img src="~/default/excel.png" /></i>
+                                                </a>
+                                            </span>
+                                        </p>
+                                        <p>Aturan upload file import.</p>
+                                        <row>
+                                            <div class="col-md-12">
+                                                <img width="100%" height="100%" src="~/default/Aturan.PNG" />
+                                            </div>
+                                        </row>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /highlighted tabs -->
+            </form>
+        </div>
+    </div>
+</div>
+<!-- modal -->
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#TableStudent').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                //'copy', 'csv', 'excel', 'pdf', 'print'
+                //'copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'
+                {
+                    extend: 'copy',
+                    text: '<i class="icon-copy text-green-800"></i>',
+                    titleAttr: 'Copy',
+                    title: 'PPG List',
+                    className: 'btn btn-link btn-lg'
+                },
+                {
+                    extend: 'csv',
+                    text: '<i class="icon-file-spreadsheet text-green-800"></i>',
+                    titleAttr: 'CSV',
+                    title: 'PPG LIST',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: '<i class="icon-file-excel text-green-800"></i>',
+                    titleAttr: 'Excel',
+                    title: 'PPG List',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7]
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="icon-file-pdf text-green-800"></i>',
+                    titleAttr: 'PDF',
+                    title: 'PPG List',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7]
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="icon-printer text-green-800"></i>',
+                    titleAttr: 'Print',
+                    title: 'PPG LIST',
+                    className: 'btn btn-link btn-lg',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7]
+                    }
+                },
+            ]
+        });
+
+        $('.sweet_warning').on('click', function () {
+            $id = this.id;
+            swal({
+                title: 'Apakah anda yakin ?',
+                text: "Setelah data di hapus tidak akan bisa dikembalikan lagi !",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Hapus !',
+                cancelButtonText: 'Tidak, Batalkan !',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+
+            }).then(function () {
+                if (event.target.classList[0] == "swal2-confirm") {
+                    $.ajax({
+                        method: "POST",
+                        url: "/PPG/Delete",
+                        dataType: "JSON",
+                        data: { id: $id },
+                        success: function (response) {
+                            swal(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            ).then(function () {
+                                window.location.href = "/PPG/Index";
+                            });
+                        },
+                        error: function (response) {
+                            alert("error!");  //
+                        }
+                    });
+                } else {
+                    swal.close();
+                }
+            }, function (dismiss) {
+
+                // Dismiss can be 'cancel', 'overlay', 'close', and 'timer'
+                if (dismiss === 'cancel') {
+                    swal(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    );
+                }
+            });
+            return false;
+        });
+    });
+</script>

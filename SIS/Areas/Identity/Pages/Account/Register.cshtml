@@ -1,0 +1,68 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Sign up";
+}
+
+<!-- Page content -->
+<div class="page-content">
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content d-flex justify-content-center align-items-center">
+            <!-- Login form -->
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="login-form">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="icon-reading icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>
+                            <h5 class="mb-0">Register to create a new account</h5>
+                            <span class="d-block text-muted">Your credentials</span>
+                        </div>
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input type="text" asp-for="Input.Email" class="form-control" placeholder="Email" />
+                            <div class="form-control-feedback">
+                                <i class="icon-user text-muted"></i>
+                            </div>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input type="password" asp-for="Input.Password" class="form-control" placeholder="Password" />
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input type="password" asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Sign up <i class="icon-git-merge"></i>
+                            </button>
+                        </div>
+                        <div class="form-group text-center text-muted content-divider">
+                            <span class="px-2">
+                                Already have an account?
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-light btn-block" asp-area="Identity" asp-page="/Account/Login">
+                                Sign in <i class="icon-circle-right2"></i>
+                            </a>
+                        </div>
+                        <span class="form-text text-center text-muted">By continuing, you're confirming that you've read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span>
+                    </div>
+                </div>
+            </form>
+            <!-- /login form -->
+        </div>
+        <!-- /content area -->
+    </div>
+    <!-- /main content -->
+</div>
+<!-- /page content -->

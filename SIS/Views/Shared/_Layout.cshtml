@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - UKMPPG</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/Assets/Global/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Assets/css/layout.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Assets/css/components.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Assets/css/colors.min.css" rel="stylesheet" type="text/css">
+
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script src="~/Assets/Global/js/main/jquery.min.js"></script>
+    <script src="~/Assets/Global/js/main/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/loaders/blockui.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/ui/ripple.min.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/visualization/d3/d3.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script src="~/Assets/Global/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/daterangepicker.js"></script>
+
+    <!-- DatatableTheme JS files -->
+    <script src="~/Assets/Global/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/selects/select2.min.js"></script>
+
+    @*<link href="~/css/buttons.dataTables.min.css" rel="stylesheet" />*@
+    @*<link href="~/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+
+    <script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables.buttons.min.js"></script>
+    <script src="~/js/jszip.min.js"></script>
+    <script src="~/js/pdfmake.min.js"></script>
+    <script src="~/js/vfs_fonts.js"></script>
+    <script src="~/js/buttons.html5.min.js"></script>
+    <script src="~/js/buttons.flash.min.js"></script>
+    <script src="~/js/buttons.print.min.js"></script>
+
+    <!--Button and lada and tada Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/buttons/spin.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/buttons/ladda.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/notifications/sweet_alert.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/styling/switchery.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/selects/select2.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/daterangepicker.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/anytime.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/pickadate/picker.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/pickadate/picker.time.js"></script>
+    <script src="~/Assets/Global/js/plugins/pickers/pickadate/legacy.js"></script>
+    <script src="~/Assets/Global/js/plugins/notifications/jgrowl.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script src="~/Assets/Global/js/plugins/uploaders/dropzone.min.js"></script>
+
+
+    <script src="~/Assets/js/app.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/dashboard.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/datatables_responsive.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/components_buttons.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/extra_sweetalert.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/form_select2.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/picker_date.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/uploader_bootstrap.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/uploader_dropzone.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/components_popups.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/form_validation.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/tags/tagsinput.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/tags/tokenfield.min.js"></script>
+    <script src="~/Assets/Global/js/plugins/forms/inputs/typeahead/typeahead.bundle.min.js"></script>
+    <script src="~/Assets/Global/js/demo_pages/form_tags_input.js"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body class="sidebar-xs">
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
+        <div class="navbar-brand">
+            <a href="index.html" class="d-inline-block">
+                <img src="~/Assets/Global/images/logo_light.png" alt="">
+            </a>
+        </div>
+
+        <div class="d-md-none">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+                <i class="icon-tree5"></i>
+            </button>
+            <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+                <i class="icon-paragraph-justify3"></i>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+                        <i class="icon-paragraph-justify3"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <partial name="_LoginPartial" />
+
+    </div>
+    <!-- /main navbar -->
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
+
+            <!-- Sidebar mobile toggler -->
+            <div class="sidebar-mobile-toggler text-center">
+                <a href="#" class="sidebar-mobile-main-toggle">
+                    <i class="icon-arrow-left8"></i>
+                </a>
+                <span class="font-weight-semibold">Navigation</span>
+                <a href="#" class="sidebar-mobile-expand">
+                    <i class="icon-screen-full"></i>
+                    <i class="icon-screen-normal"></i>
+                </a>
+            </div>
+            <!-- /sidebar mobile toggler -->
+            <!-- Sidebar content -->
+            <div class="sidebar-content">
+
+                <!-- Main navigation -->
+                <div class="card card-sidebar-mobile">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main -->
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link sidebar-main-toggle">
+                                <i class="icon-lan3"></i>
+                                <span>
+                                    Close Menu
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Menu</div> <i class="icon-menu" title="Main"></i></li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Index" class="nav-link active">
+                                <i class="icon-home4"></i>
+                                <span>
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a asp-controller="PPG" asp-action="Index" class="nav-link"><i class="icon-graduation"></i> <span>PPG</span></a></li>
+                        <!-- /main -->
+
+                    </ul>
+                </div>
+                <!-- /main navigation -->
+
+            </div>
+            <!-- /sidebar content -->
+
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Page header -->
+            <!-- /page header -->
+            <!-- Content area -->
+            <div class="content">
+
+                <!-- Main charts -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        @RenderBody()
+                    </div>
+                </div>
+
+            </div>
+            <!-- /content area -->
+            <!-- Footer -->
+            <div class="navbar navbar-expand-lg navbar-light">
+                <div class="text-center d-lg-none w-100">
+                    <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+                        <i class="icon-unfold mr-2"></i>
+                        Footer
+                    </button>
+                </div>
+
+                <div class="navbar-collapse collapse" id="navbar-footer">
+                    <span class="navbar-text">
+                        &copy; SIS - 2019
+                    </span>
+                </div>
+            </div>
+            <!-- /footer -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

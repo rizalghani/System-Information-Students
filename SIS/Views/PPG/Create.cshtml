@@ -1,0 +1,153 @@
+﻿@model SIS.Models.PPG
+
+
+@{
+    if (Model != null)
+    {
+        ViewData["Title"] = "Edit";
+    }
+    else
+    {
+        ViewData["Title"] = "Create";
+    }
+
+}
+
+<div class="card">
+    <div class="card-header header-elements-inline">
+        @if (Model != null)
+        {
+            <h5 class="card-title font-weight-bold text-green-700">Edit FORM</h5>
+        }
+        else
+        {
+            <h5 class="card-title font-weight-bold text-blue-700">CREATE FORM</h5>
+        }
+
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="reload"></a>
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="Create">
+        <div class="card-body">
+            <div class="row font-weight-bold">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend class="@(Model != null ? "font-weight-semibold text-green-700" : "font-weight-semibold text-primary-700")"><i class="icon-box mr-2"></i> PPG INPUT</legend>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="No_Ujian" class="control-label"></label> *
+                                    <div class="input-group">
+                                        <input type="number" maxlength="100" asp-for="No_Ujian" class="form-control" placeholder="Masukkan nomor ujian" value="@(Model != null ? Model.No_Ujian : "")" required />
+                                    </div>
+                                    <span asp-validation-for="No_Ujian" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="No_PPG" class="control-label"></label> *
+                                    <div class="input-group">
+                                        <input type="number" maxlength="100" asp-for="No_PPG" class="form-control" placeholder="Masukkan nomor peserta PPG" value="@(Model != null ? Model.No_PPG : "")" required />
+                                    </div>
+                                    <span asp-validation-for="No_PPG" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Nama" class="control-label"></label> *
+                                    <div class="input-group">
+                                        <input asp-for="Nama" class="form-control" placeholder="Masukkan nama peserta PPG" value="@(Model != null ? Model.Nama : "")" required />
+                                    </div>
+                                    <span asp-validation-for="No_Ujian" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Mapel" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="Mapel" class="form-control select" data-placeholder="Masukkan nama Mapel ..." data-fouc>
+                                            <option value="@(Model != null ? Model.Mapel : "")"></option>
+                                            <option value="Akidah Akhlak">Akidah Akhlak</option>
+                                            <option value="Fisika">Fisika</option>
+                                            <option value="Aljabar">Aljabar</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Mapel" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Status" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="Status" class="form-control select" data-placeholder="Masukkan status ..." required data-fouc>
+                                            <option value="@(Model != null ? Model.Status : "")"></option>
+                                            <option value="Lulus">Lulus</option>
+                                            <option value="Tidak Lulus">Tidak Lulus</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Lokasi" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="Lokasi" class="form-control select" data-placeholder="Masukkan lokasi ..." data-fouc>
+                                            <option value="@(Model != null ? Model.Lokasi : "")"></option>
+                                            <option value="UIN Alauddin Makassar">UIN Alauddin Makassar</option>
+                                            <option value="UN Jakarta">UN Jakarta</option>
+                                            <option value="UNPAD Bandung">UNPAD Bandung</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Lokasi" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-6 mb-0">
+                    <div class="form-group mb-0">
+                        <a asp-action="Index" class="btn btn-link"><i class="icon-backward"></i> Back to List</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right mb-0">
+                    <div class="form-group mb-0">
+                        @if (Model != null)
+                        {
+                            <button type="submit" value="" class="btn btn-success">Edit <i class="icon-database-edit2 ml-2"></i></button>
+                        }
+                        else
+                        {
+                            <button type="submit" value="" class="btn btn-primary">Create <i class="icon-paperplane ml-2"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
