@@ -14,7 +14,7 @@ namespace SIS.Data
         {
         }
 
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Major> Majors { get; set; }
+        //<PPG> adalah nama model PPG.cs, sedangkan PPG adalah nama tabel di DB
+        public DbSet<PPG> PPG { get; set; }
     }
 }
