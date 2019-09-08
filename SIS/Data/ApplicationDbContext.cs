@@ -14,7 +14,6 @@ namespace SIS.Data
         {
         }
 
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Major> Majors { get; set; }
+        public virtual DbSet<PPG> PPG { get; set; }
     }
 }
