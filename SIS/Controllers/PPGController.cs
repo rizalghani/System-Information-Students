@@ -186,11 +186,11 @@ namespace SIS.Controllers
                 }
 
                 // Remove Excel file after upload process
-                string pathOld = Path.Combine(pathNew, files.FileName);
-                if (System.IO.File.Exists(pathOld))
-                {
-                    System.IO.File.Delete(pathOld);
-                }
+                //string pathOld = Path.Combine(pathNew, files.FileName);
+                //if (System.IO.File.Exists(pathOld))
+                //{
+                //    System.IO.File.Delete(pathOld);
+                //}
                 ViewBag.errorMsg = errorMessage;
                 
             }
