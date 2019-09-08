@@ -81,19 +81,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label asp-for="Status" class="control-label"></label>
-                                    <div class="input-group">
-                                        <select asp-for="Status" class="form-control select" data-placeholder="Masukkan status ..." required data-fouc>
-                                            <option value="@(Model != null ? Model.Status : "")"></option>
-                                            <option value="Lulus">Lulus</option>
-                                            <option value="Tidak Lulus">Tidak Lulus</option>
-                                        </select>
-                                    </div>
-                                    <span asp-validation-for="Status" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label asp-for="Mapel" class="control-label"></label>
                                     <div class="input-group">
                                         <select asp-for="Mapel" class="form-control select" data-placeholder="Masukkan nama Mapel ..." data-fouc>
@@ -104,6 +91,19 @@
                                         </select>
                                     </div>
                                     <span asp-validation-for="Mapel" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Status" class="control-label"></label>
+                                    <div class="input-group">
+                                        <select asp-for="Status" class="form-control select" data-placeholder="Masukkan status ..." required data-fouc>
+                                            <option value="@(Model != null ? Model.Status : "")"></option>
+                                            <option value="Lulus">Lulus</option>
+                                            <option value="Tidak Lulus">Tidak Lulus</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
