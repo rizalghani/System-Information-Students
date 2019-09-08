@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS", "SIS\SIS.csproj", "{2BBFB209-7AB4-48AD-94BD-2E5A8A896957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPG", "SIS\PPG.csproj", "{2BBFB209-7AB4-48AD-94BD-2E5A8A896957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
